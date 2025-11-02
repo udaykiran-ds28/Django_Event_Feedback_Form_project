@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Events List</title>
+</head>
+<body>
+    <div class="container">
+      <header class="site-header">
+        <div class="brand">Feedback Events</div>
+      </header>
+
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-title">Events List</h1>
+          <a href="{% url 'home' %}"><button>Home</button></a>
+        </div>
+        <div class="card-body">
+          <div class="list">
+            {% for event in events %}
+              <div class="item">
+                <div class="item-title">{{ event.title }}</div>
+                <div class="item-meta">Date: {{ event.date }} · Location: {{ event.location }}</div>
+                <div class="muted">{{ event.description }}</div>
+                <div class="item-actions">
+                  <form action="{% url 'edit_event' event.id %}" method="get">
+                    <button class="btn btn-secondary" type="submit">Edit</button>
+                  </form>
+                  <form action="{% url 'delete_event' event.id %}" method="get">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                  </form>
+                </div>
+              </div>
+            {% empty %}
+              <div class="muted">No events yet.</div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

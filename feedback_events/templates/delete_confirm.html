@@ -1,0 +1,31 @@
+<!-- { % load static % } -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Delete Event</title>
+</head>
+<body>
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Confirm Deletion</h2>
+        </div>
+        <div class="card-body">
+          <p>Are you sure you want to delete:</p>
+          <p class="item-title">{{ event.title }}</p>
+          <div class="btn-row mt-16">
+            <form method="POST">
+              {% csrf_token %}
+              <button class="btn btn-danger" type="submit">Yes, Delete</button>
+            </form>
+            <a class="btn btn-secondary" href="{% url 'show_events' %}">Cancel</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

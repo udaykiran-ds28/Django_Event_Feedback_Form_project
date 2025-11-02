@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Events</title>
+</head>
+<body>
+    <div class="container">
+      <header class="site-header">
+        <div class="brand">Feedback Events</div>
+      </header>
+
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-title">Create Event</h1>
+        </div>
+        <div class="card-body">
+          <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-grid">
+              <div class="col-span-2">
+                <label class="label">Event Name</label>
+                <input class="input" type="text" name="EVENT" placeholder="Enter event title">
+              </div>
+
+              <div class="col-span-2">
+                <label class="label">Description</label>
+                <textarea class="textarea" name="Description" placeholder="Add a short description"></textarea>
+              </div>
+
+              <div>
+                <label class="label">Date</label>
+                <input class="input" type="date" name="date" placeholder="date">
+              </div>
+
+              <div>
+                <label class="label">Location</label>
+                <input class="input" type="text" name="location" placeholder="City, Venue, etc.">
+              </div>
+            </div>
+
+            <div class="btn-row mt-16">
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
