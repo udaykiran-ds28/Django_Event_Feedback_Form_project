@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>EVENTS LIST</h1>
+    {% for event in events%}
+    <h2>{{event.title}}</h2>
+    <h3>{{event.data}}</h3>
+    <p>{{event.description}}</p>
+    <h4>{{event.location}}</h4>
+    <form action="{% url 'edit_event' event.id %}" method="get" style="display:inline;">
+            <button type="submit">Edit</button>
+        </form>
+        <form action="{% url 'delete_event' event.id %}" method="get">
+    <button>Deleate</button>
+    </form>
+    <hr>
+    {% endfor %}
+</body>
+</html>

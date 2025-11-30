@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hii this is main page for events</h1>
+    <form action="" method="POST">
+        <!-- {% url 'show_events'%} -->
+        {% csrf_token %}
+        <input type="text" name="EVENT" placeholder="EVENT_NAME">
+        <input type="text" name="Description" placeholder="Description">
+        <input type="date" name="date" placeholder="date ">
+        <input type="text" name="location" placeholder="location">
+        <button>SUBMIT</button>
+    </form>
+</body>
+</html>

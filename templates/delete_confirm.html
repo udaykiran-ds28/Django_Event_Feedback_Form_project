@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Event</title>
+</head>
+<body>
+    <h2>Are you sure you want to delete this event?</h2>
+    <p><strong>{{ event.title }}</strong></p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+        <a href="{% url 'show_events' %}">Cancel</a>
+    </form>
+</body>
+</html>

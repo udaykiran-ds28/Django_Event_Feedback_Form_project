@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Edit Feedback</h2>
+
+     <form method="POST" action="{% url 'edit_event' event.id %}">
+        {% csrf_token %}
+        <label>Event Name:</label>
+        <input type="text" name="EVENT" value="{{ event.title }}"><br><br>
+
+        <label>Description:</label>
+        <textarea name="Description">{{ event.description }}</textarea><br><br>
+
+        <label>Date:</label>
+        <input type="date" name="date" value="{{ event.date }}"><br><br>
+
+        <label>Location:</label>
+        <input type="text" name="location" value="{{ event.location }}"><br><br>
+
+        <button type="submit">Update</button>
+       <a href="{% url 'home' %}">Cancel</a>
+    </form>
+
+</body>
+</html>

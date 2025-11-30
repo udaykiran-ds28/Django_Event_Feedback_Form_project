@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: feedback-events
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn feedback_events.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.16
+      - key: DISABLE_COLLECTSTATIC
+        value: 1
+    plan: free
